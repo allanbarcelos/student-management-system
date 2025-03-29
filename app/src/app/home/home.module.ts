@@ -10,10 +10,11 @@ import { HomeComponent } from './home.component';
 @NgModule({
   declarations: [
     HomeComponent, 
-    CourseRegistrationComponent,
+    
   ],
   imports: [
     CommonModule,
+    CourseRegistrationComponent,
     HomeRoutingModule
   ]
 })
