@@ -1,1 +1,34 @@
-<p>home works!</p>
+<div class="container mt-4">
+    <h2 class="mb-3">Dashboard Overview</h2>
+  
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm p-3">
+          <h5>Total Students</h5>
+          <p class="display-6 text-primary">{{ studentCount }}</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm p-3">
+          <h5>Total Courses</h5>
+          <p class="display-6 text-success">{{ courseCount }}</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm p-3">
+          <h5>Courses Not Registered</h5>
+          <p class="display-6 text-danger">{{ unregisteredCourseCount }}</p>
+        </div>
+      </div>
+  
+      <div class="col-md-6 col-lg-3">
+        <div class="card shadow-sm p-3">
+          <h5>Students Without Courses</h5>
+          <p class="display-6 text-warning">{{ studentsWithoutCourses }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
