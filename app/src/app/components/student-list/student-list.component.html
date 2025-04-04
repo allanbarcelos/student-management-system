@@ -1,0 +1,31 @@
+<div class="student-list-container">
+    <h2>Student Directory</h2>
+  
+    <table *ngIf="students.length > 0; else noData">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Date of Birth</th>
+          <th>Enrollment Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of students; index as i">
+          <td>{{ i + 1 }}</td>
+          <td>{{ student.name }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.dateOfBirth | date:'MMM d, y' }}</td>
+          <td>{{ student.enrollmentDate | date:'MMM d, y' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <ng-template #noData>
+      <div class="no-data">
+        <p>No student records found.</p>
+      </div>
+    </ng-template>
+  </div>
+  
