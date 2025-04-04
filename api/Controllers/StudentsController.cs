@@ -40,6 +40,13 @@ namespace StudentManagementSystem.Controllers
             return student;
         }
 
+        // GET: api/Students
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Student>>> GetAllStudents()
+        {
+            return await _context.Students.ToListAsync();
+        }
+
         // PUT
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateStudent(int id, [FromBody] Student updatedStudent)

@@ -10,7 +10,12 @@ import { LayoutComponent } from './layout/layout.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+// Added by @sarahdadoun01 - needed to test if what i did was okay
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
+
+// Added by @sarahdadoun01 - "StudentListComponent," to test
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,12 +23,14 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     LayoutComponent,
     HeaderComponent,
+    StudentListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbDropdownModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
