@@ -19,7 +19,7 @@ namespace API.Data
 
 
         // Course.cs Did not exist when this was added.
-        // This is for Issue #17
+        // Added for Issue #17
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
