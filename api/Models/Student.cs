@@ -8,6 +8,10 @@ namespace StudentManagementSystem.Models
         public DateTime DateOfBirth { get; set; }
         public DateTime EnrollmentDate { get; set; }
 
+        // Added for Issue #17 (for the relationship)
+        public ICollection<StudentCourse> StudentCourses { get; set; }
+
+
         public Student() { }
 
         public Student(int id, string name, string email, DateTime dob, DateTime enrollmentDate)
