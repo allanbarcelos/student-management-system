@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout/layout.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { StudentDetailsComponent } from './student-details/student-details.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     LayoutComponent,
     HeaderComponent,
+    StudentDetailsComponent,
   ],
   imports: [
     BrowserModule,
