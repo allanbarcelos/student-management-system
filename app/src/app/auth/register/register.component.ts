@@ -1,17 +1,23 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router'; // ✅ این لازمه برای routerLink
 import { first } from 'rxjs';
 
 @Component({
   selector: 'app-register',
-  standalone: false,
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule // ✅ اینو حتما اضافه کن
+  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.scss'
+  styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-
   form: FormGroup;
   submitted: boolean = false;
   loading: boolean = false;
@@ -24,10 +30,6 @@ export class RegisterComponent {
       password: ['', [Validators.required]],
       confirmPassword: ['', [Validators.required]],
     });
-  }
-
-  ngOnInit(): void {
-    
   }
 
   onSubmit(){
@@ -48,7 +50,7 @@ export class RegisterComponent {
       lastName: this.form.get('lastName')?.value,
       email: this.form.get('email')?.value,
       password: this.form.get('password')?.value
-    }
+    };
 
     this.authSrv.register(user)
       .pipe(first())
@@ -56,16 +58,12 @@ export class RegisterComponent {
         next: (data) => {
           if(data) this.router.navigate(['/auth/login']);
         },
-        error: (error) => {
+        error: () => {
           this.loading = false;
         },
         complete: () => {
           this.loading = false;
         }
-      })
-
-
+      });
   }
-
-
 }
