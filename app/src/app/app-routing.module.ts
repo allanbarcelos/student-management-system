@@ -9,7 +9,9 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule), },
+      { path: 'students', loadChildren: () => import('./student/student.module').then((m) => m.StudentModule), },
     ],
+
   },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule), },
   { path: 'error', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
