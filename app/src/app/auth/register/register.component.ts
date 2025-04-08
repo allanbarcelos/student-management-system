@@ -1,37 +1,69 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../auth.service';
+import { Router, RouterModule } from '@angular/router'; // ✅ این لازمه برای routerLink
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    RouterModule // ✅ اینو حتما اضافه کن
+  ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  registerForm: FormGroup;
+  form: FormGroup;
+  submitted: boolean = false;
+  loading: boolean = false;
 
-  constructor(private fb: FormBuilder) {
-    this.registerForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+  constructor(private fb: FormBuilder, private authSrv: AuthService, private router: Router){
+    this.form = this.fb.group({
+      firstName: ['', [Validators.required]],
+      lastName: [''],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required]
-    }, { validator: this.passwordMatchValidator });
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+    });
   }
 
-  passwordMatchValidator(form: FormGroup) {
-    return form.get('password')?.value === form.get('confirmPassword')?.value
-      ? null : { mismatch: true };
-  }
+  onSubmit(){
+    this.submitted = true;
 
-  onSubmit(): void {
-    if (this.registerForm.valid) {
-      console.log('Form Submitted', this.registerForm.value);
-    } else {
-      this.registerForm.markAllAsTouched();
+    if(this.form.invalid){
+      return;
     }
+
+    if(this.form.get('password')?.value !== this.form.get('confirmPassword')?.value){
+      return;
+    }
+
+    this.loading = true;
+
+    const user = {
+      firstName: this.form.get('firstName')?.value,
+      lastName: this.form.get('lastName')?.value,
+      email: this.form.get('email')?.value,
+      password: this.form.get('password')?.value
+    };
+
+    this.authSrv.register(user)
+      .pipe(first())
+      .subscribe({
+        next: (data) => {
+          if(data) this.router.navigate(['/auth/login']);
+        },
+        error: () => {
+          this.loading = false;
+        },
+        complete: () => {
+          this.loading = false;
+        }
+      });
   }
 }

@@ -1,25 +1,32 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule], // ⬅️ این خط خیلی مهمه
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  student = {
-    fullName: '',
-    email: '',
-    phone: ''
-  };
+  form: FormGroup;
 
-  constructor() {}
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+      confirmPassword: ['', [Validators.required]],
+    });
+  }
 
-  onSubmit() {
-    console.log('Student registered:', this.student);
-    alert(`Student Registered!\n\nName: ${this.student.fullName}\nEmail: ${this.student.email}\nPhone: ${this.student.phone}`);
+  onSubmit(): void {
+    if (this.form.invalid) return;
+
+    const { firstName, lastName, email } = this.form.value;
+    alert(`Student Registered!\n\nName: ${firstName} ${lastName}\nEmail: ${email}`);
   }
 }
