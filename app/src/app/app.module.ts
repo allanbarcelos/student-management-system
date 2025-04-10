@@ -11,6 +11,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { StudentDetailsComponent } from './student-details/student-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { StudentDetailsComponent } from './student-details/student-details.compo
     AppRoutingModule,
     NgbDropdownModule,
     FontAwesomeModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

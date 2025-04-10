@@ -5,15 +5,15 @@ public class Student
     public int Id { get; set; }
     public string Name { get; set; }
     public string Email { get; set; }
-    public DateTime DateOfBith { get; set; }
-    public DateTime EnrollmentDate { get; set; }
+    public string DateOfBirth { get; set; }
+    public string EnrollmentDate { get; set; }
 
-    public Student(int id, string name, string email, DateTime dob, DateTime enrollementDate) 
+    public Student(int id, string name, string email, string dob, string enrollementDate) 
     {
         Id = id;
         Name = name;
         Email = email;
-        DateOfBith = dob;
+        DateOfBirth = dob;
         EnrollmentDate = enrollementDate;
     }
 
@@ -22,7 +22,7 @@ public class Student
         Console.WriteLine($"Student ID: {Id}");
         Console.WriteLine($"Student Name: {Name}");
         Console.WriteLine($"Student Email: {Email}");
-        Console.WriteLine($"Student Date of Birth: {DateOfBith}");
+        Console.WriteLine($"Student Date of Birth: {DateOfBirth}");
         Console.WriteLine($"Student Enrollment Date: {EnrollmentDate}");
     }
 }

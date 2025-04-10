@@ -1,5 +1,5 @@
 <p>student-details works!</p>
-<div class="student-details">
+<div class="student-details" *ngIf="student; else errorTemplate">
     <h2>Student Details</h2>
     <p><strong>ID:</strong> {{ student.id }}</p>
     <p><strong>Name:</strong> {{ student.name }}</p>
@@ -7,3 +7,7 @@
     <p><strong>Date of Birth:</strong> {{ student.dateOfBirth | date }}</p>
     <p><strong>Enrollment Date:</strong> {{ student.enrollmentDate | date }}</p>
 </div>
+
+<ng-template #errorTemplate>
+    <p *ngIf="errorMessage">{{ errorMessage }}</p>
+</ng-template>

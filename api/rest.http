@@ -19,3 +19,8 @@ content-type: application/json
 GET http://localhost:5167/protected HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{authToken}}
+
+
+### Test GET Student by ID
+GET http://localhost:5167/api/Students/121 HTTP/1.1
+Content-Type: application/json

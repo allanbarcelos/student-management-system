@@ -20,7 +20,16 @@ public class StudentsController : ControllerBase
     [HttpGet("{id}")]
     public async Task<ActionResult<Student>> GetStudent(int id)
     {
-        var student = await _context.Students.FindAsync(id); // Student table is not yet in the database
+        //var student = await _context.Students.FindAsync(id); // Student table is not yet in the database
+        
+        var student = new Student(
+            id,
+            "Mock Student",
+            "mock@student.com",
+            "2000, 1, 1",
+            "2025, 2, 2"
+        );
+
         if (student == null)
         {
             return NotFound();
