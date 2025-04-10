@@ -1,4 +1,6 @@
+using api.Models;
 namespace API.Data
+
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
@@ -9,5 +11,6 @@ namespace API.Data
         {
 
         }
+        public DbSet<Course> Courses { get; set; }
     }
 }
