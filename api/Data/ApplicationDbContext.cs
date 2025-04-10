@@ -2,6 +2,7 @@ namespace API.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using StudentManagementSystem.Models;
 
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -9,5 +10,7 @@ namespace API.Data
         {
 
         }
+
+         public DbSet<Course> Courses { get; set; }
     }
 }
