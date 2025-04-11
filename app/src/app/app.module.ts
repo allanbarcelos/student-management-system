@@ -13,6 +13,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { provideHttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ProfileComponent } from './pages/profile/profile.component';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    provideHttpClient()
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
