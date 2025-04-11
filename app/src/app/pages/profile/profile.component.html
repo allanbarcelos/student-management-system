@@ -2,14 +2,14 @@
 <div class="profile-container">
     <h1>User Profile</h1>
 
-    <div *ngIf="User">
+    <div *ngIf="user">
         <form (ngSubmit)="onSubmit()">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input 
                 type="text" 
                 id="name" 
-                [(ngModel)]="User.name"
+                [(ngModel)]="user.name"
                 name="name"
                 class="form-control"
                 required/>
@@ -20,7 +20,7 @@
                 <input
                 type="email"
                 id="email"
-                [(ngModel)]="User.email"
+                [(ngModel)]="user.email"
                 name="email"
                 class="form-control"
                 required/>
@@ -31,7 +31,7 @@
                 <input 
                 type="password"
                 id="password"
-                [(ngModel)]="User.password"
+                [(ngModel)]="user.password"
                 name="password"
                 class="form-control"/>
             </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { ApiService } from '../../core/services/api.service'; //To get the data and update user data
 import { Router } from '@angular/router';
 
@@ -15,26 +15,34 @@ export class ProfileComponent {
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.apiService.getUserProfile().subscribe(
-      (userData) => {
-        this.user = userData;
-      },
-      (error) => {
-        console.error('Error fetching user data', error);
-      }
-    );
+
+    this.user = {
+      name: "John Doe",
+      email: "john.doe@example.com",
+      password: ""
+    };
+
+    // this.apiService.getUserProfile().subscribe(
+    //   (userData) => {
+    //     this.user = userData;
+    //   },
+    //   (error) => {
+    //     console.error('Error fetching user data', error);
+    //   }
+    // );
   }
 
   onSubmit(): void {
-    this.apiService.updateUserProfile(this.user).subscribe(
-      (updatedUser) => {
-        this.user = updatedUser;
-        alert('Profile updated successfully!');
-      },
-      (error) => {
-        console.error('Error updating profile', error);
-        alert('An error occured while updating your profile.');
-      }
-    );
+    // console.log('Form submitted: ', this.user)
+  //   this.apiService.updateUserProfile(this.user).subscribe(
+  //     (updatedUser) => {
+  //       this.user = updatedUser;
+  //       alert('Profile updated successfully!');
+  //     },
+  //     (error) => {
+  //       console.error('Error updating profile', error);
+  //       alert('An error occured while updating your profile.');
+  //     }
+  //   );
   }
 }
