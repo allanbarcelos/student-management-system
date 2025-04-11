@@ -1,0 +1,46 @@
+<p>profile works!</p>
+<div class="profile-container">
+    <h1>User Profile</h1>
+
+    <div *ngIf="User">
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                type="text" 
+                id="name" 
+                [(ngModel)]="User.name"
+                name="name"
+                class="form-control"
+                required/>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                type="email"
+                id="email"
+                [(ngModel)]="User.email"
+                name="email"
+                class="form-control"
+                required/>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input 
+                type="password"
+                id="password"
+                [(ngModel)]="User.password"
+                name="password"
+                class="form-control"/>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+
+    <div *ngIf="!user">
+        <p>Loading...</p>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-using System;
+namespace StudentManagementSystem.Models;
 
 public class Student 
 {
@@ -8,6 +8,7 @@ public class Student
     public DateTime DateOfBirth { get; set; }
     public DateTime EnrollmentDate { get; set; }
 
+    public Student(){}
     public Student(int id, string name, string email, DateTime dob, DateTime enrollementDate) 
     {
         Id = id;
