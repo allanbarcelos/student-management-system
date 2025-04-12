@@ -1,6 +1,6 @@
 #  Build
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-# SDK => Software Developkment Kit
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+# SDK => Software Development Kit
 
 WORKDIR /src
 
@@ -15,11 +15,11 @@ COPY . .
 # Run
 RUN dotnet publish -c Release -o /app/publish
 
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
 WORKDIR /app
 
 COPY --from=build /app/publish .
 
 EXPOSE 5123
 
-ENTRYPOINT ["sh", "-c", "dotnet api.dll"]
+ENTRYPOINT ["dotnet", "api.dll"]

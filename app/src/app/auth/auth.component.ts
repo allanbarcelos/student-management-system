@@ -9,7 +9,7 @@ import {
 @Component({
   standalone: false,
   templateUrl: './auth.component.html',
-  styleUrl: './auth.component.scss',
+  styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit, OnDestroy {
   constructor(private renderer: Renderer2, private el: ElementRef) {}
