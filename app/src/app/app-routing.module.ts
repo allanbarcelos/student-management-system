@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -9,7 +9,7 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule), },
-      { path: 'course-listing', component: CourseListingComponent } //, Course listing page
+      { path: 'course-listing', loadChildren: () => import('./course-listing/course-listing.module').then(m => m.CourseListingModule) }
       // { path: 'course-details/:id', component: CourseDetailsComponent }, // In stand by
       // { path: 'edit-course/:id', component: EditCourseComponent }, // In stand by
       // { path: 'delete-course/:id', component: DeleteCourseComponent }, // In stand by

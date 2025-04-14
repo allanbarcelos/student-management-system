@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-course-listing',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./course-listing.component.scss']
 })
 export class CourseListingComponent {
+  constructor() {}
+
+  // Pagination properties
+  currentPage = 1;
+  itemsPerPage = 5;
+  totalItems = 0;
+
   courses = [
     {
       id: 1,
@@ -37,6 +45,70 @@ export class CourseListingComponent {
       startDate: '2025-03-01', // String format
       endDate: '2025-07-30',   // String format
       instructor: 'Albert Brown'
+    },
+    {
+      id: 4,
+      name: 'Computer Science 101',
+      description: 'Introduction to Programming',
+      startDate: '2025-01-15',
+      endDate: '2025-05-25',
+      instructor: 'Sarah Johnson'
+    },
+    {
+      id: 5,
+      name: 'Biology 201',
+      description: 'Cell Biology and Genetics',
+      startDate: '2025-02-01',
+      endDate: '2025-06-10',
+      instructor: 'Michael Chen'
+    },
+    {
+      id: 6,
+      name: 'English Literature',
+      description: 'Classic and Modern Literature',
+      startDate: '2025-03-15',
+      endDate: '2025-07-20',
+      instructor: 'Emily Wilson'
+    },
+    {
+      id: 7,
+      name: 'History 301',
+      description: 'World History and Civilizations',
+      startDate: '2025-01-20',
+      endDate: '2025-05-30',
+      instructor: 'Robert Davis'
+    },
+    {
+      id: 8,
+      name: 'Economics 201',
+      description: 'Micro and Macro Economics',
+      startDate: '2025-02-10',
+      endDate: '2025-06-15',
+      instructor: 'Lisa Thompson'
     }
   ];
+
+  // Get paginated courses
+  get paginatedCourses() {
+    this.totalItems = this.courses.length;
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.courses.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
+  // Get total pages
+  get totalPages() {
+    return Math.ceil(this.totalItems / this.itemsPerPage);
+  }
+
+  // Change page
+  changePage(page: number) {
+    if (page >= 1 && page <= this.totalPages) {
+      this.currentPage = page;
+    }
+  }
+
+  // Get page numbers for pagination
+  get pageNumbers() {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
 }
