@@ -20,7 +20,13 @@ GET http://localhost:5167/protected HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{authToken}}
 
+###
+# @name getStudents
+GET http://localhost:5167/api/Students HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{authToken}}
 
+###
 # @name studentEnrollent
 GET http://localhost:5167/student/4ddd0531-f3d9-413d-99c6-bd465e8013b1/course/4469a0de-70b5-4773-90e7-c7c02f8fa02b HTTP/1.1
 content-type: application/json
