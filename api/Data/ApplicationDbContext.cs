@@ -2,6 +2,7 @@ namespace API.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using StudentManagementSystem.Models;
 
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -9,6 +10,10 @@ namespace API.Data
         {
 
         }
+<<<<<<< HEAD
+
+         public DbSet<Course> Courses { get; set; }
+=======
         
         public DbSet<Student> Students { get; set; }
 
@@ -25,5 +30,6 @@ namespace API.Data
                 entity.Property(e => e.EnrollmentDate).IsRequired();
             });
         }
+>>>>>>> upstream/main
     }
 }
