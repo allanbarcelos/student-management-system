@@ -10,6 +10,9 @@ import { LayoutComponent } from './layout/layout.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { CommonModule } from '@angular/common';
+import { CourseListingComponent } from './course-listing/course-listing.component';
 import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
@@ -19,12 +22,14 @@ import { provideHttpClient } from '@angular/common/http';
     FooterComponent,
     LayoutComponent,
     HeaderComponent,
+    CourseListingComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbDropdownModule,
     FontAwesomeModule,
+    CommonModule,
   ],
   providers: [
     provideHttpClient()

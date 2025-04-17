@@ -1,0 +1,37 @@
+<p>course-listing works!</p>
+
+<h1>Course Listing</h1>
+<p>Here is the list of available courses:</p>
+
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>ID</th>
+      <th>Instructor</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{ course.name }}</td>
+      <td>{{ course.id }}</td>
+      <td>{{ course.instructor }}</td>
+      <!-- <td>{{ course.startDate | date: 'shortDate' }} - {{ course.endDate | date: 'shortDate' }}</td> -->
+      <td>{{ course.startDate }} - {{ course.endDate }}</td>
+      <td>{{ course.description }}</td>
+      <td>
+        <!-- Links to CRUD operations -->
+        <a [routerLink]="['/course-details', course.id]" class="btn btn-info">Details</a>
+        <a [routerLink]="['/edit-course', course.id]" class="btn btn-warning">Edit</a>
+        <a [routerLink]="['/delete-course', course.id]" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Link to register a new course -->
+<a [routerLink]="'/register-course'" class="btn btn-primary">Register New Course</a>
+<br/>
