@@ -9,11 +9,13 @@ const routes: Routes = [
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule), },
+      { path: '', loadChildren: () => import('./home/home.module').then((m) => m.HomeModule) },
+      { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) },
+      { path: 'courses', loadChildren: () => import('./courses/courses.module').then(m => m.CoursesModule) },
     ],
     canActivate: [AuthGuard]
   },
-  { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule), },
+  { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
   { path: 'error', loadChildren: () => import('./error/error.module').then(m => m.ErrorModule) },
   { path: '**', redirectTo: 'error', pathMatch: 'full' },
 ];
