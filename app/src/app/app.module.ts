@@ -14,6 +14,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { CourseListingComponent } from './course-listing/course-listing.component';
 import { provideHttpClient } from '@angular/common/http';
+import { RegisterCourseComponent } from './register-course/register-course.component';
+
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import { provideHttpClient } from '@angular/common/http';
     LayoutComponent,
     HeaderComponent,
     CourseListingComponent,
+    RegisterCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,10 +34,9 @@ import { provideHttpClient } from '@angular/common/http';
     NgbDropdownModule,
     FontAwesomeModule,
     CommonModule,
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideHttpClient()
-  ],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
