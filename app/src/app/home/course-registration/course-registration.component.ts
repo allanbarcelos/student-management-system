@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { CourseListingService, Course } from '../../course-listing/course-listing.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-course-registration',
   templateUrl: './course-registration.component.html',
   styleUrls: ['./course-registration.component.scss'], 
-  standalone: true
+  standalone: true, 
+  imports: [FormsModule]
 })
 export class CourseRegistrationComponent {
-  constructor(private courseService: CourseListingService) {}
+  constructor(
+    private courseService: CourseListingService,
+  ) {}
 
   registerCourse(formRef: any) {
     const form = formRef.value;
@@ -25,7 +29,7 @@ export class CourseRegistrationComponent {
     this.courseService.createCourse(courseData).subscribe({
       next: (res) => {
         alert('Course registered successfully!');
-        formRef.resetForm(); 
+        formRef.resetForm();
       },
       error: (err) => {
         console.error(err);
