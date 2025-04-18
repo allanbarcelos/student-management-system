@@ -7,15 +7,16 @@ public class Student
     public string Email { get; set; }
     public DateTime DateOfBirth { get; set; }
     public DateTime EnrollmentDate { get; set; }
-
-    public Student(){}
-    public Student(int id, string name, string email, DateTime dob, DateTime enrollementDate) 
+  
+    public Student() { }
+    
+    public Student(int id, string name, string email, DateTime dateOfBirth, DateTime enrollmentDate) 
     {
         Id = id;
         Name = name;
         Email = email;
-        DateOfBirth = dob;
-        EnrollmentDate = enrollementDate;
+        DateOfBirth = dateOfBirth;
+        EnrollmentDate = enrollmentDate;
     }
 
     public void DisplayStudentDetails()
