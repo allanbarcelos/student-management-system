@@ -2,6 +2,7 @@ namespace API.Data
 {
     using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
     using Microsoft.EntityFrameworkCore;
+    using StudentManagementSystem.Api.Models;
 
     public class ApplicationDbContext : IdentityDbContext
     {
@@ -11,6 +12,7 @@ namespace API.Data
         }
         
         public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
