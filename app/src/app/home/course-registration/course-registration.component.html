@@ -1,0 +1,28 @@
+<div class="course-registration">
+    <h2>Register New Course</h2>
+  
+    <form (ngSubmit)="registerCourse(form.value)" #form="ngForm">
+      <div class="form-group">
+        <label for="courseName">Course Name</label>
+        <input type="text" id="courseName" name="courseName" placeholder="Enter course name" ngModel required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="courseCode">Course Code</label>
+        <input type="text" id="courseCode" name="courseCode" placeholder="e.g. CS101" rngModel required />
+      </div>
+  
+      <div class="form-group">
+        <label for="instructor">Instructor</label>
+        <input type="text" id="instructor" name="instructor" placeholder="Instructor's name" ngModel required/>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4" placeholder="Course description" ngModel required></textarea>
+      </div>
+  
+      <button type="submit">Submit</button>
+      <form (ngSubmit)="registerCourse(form.value)" #form="ngForm"></form>
+    </form>
+  </div>
