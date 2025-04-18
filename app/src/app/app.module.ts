@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,10 +12,11 @@ import { LayoutComponent } from './layout/layout.component';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { ProfileComponent } from './pages/profile/profile.component';
 import { CommonModule } from '@angular/common';
 import { CourseListingComponent } from './course-listing/course-listing.component';
 import { provideHttpClient } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { provideHttpClient } from '@angular/common/http';
     FooterComponent,
     LayoutComponent,
     HeaderComponent,
+    ProfileComponent,
     CourseListingComponent,
   ],
   imports: [
@@ -29,6 +33,8 @@ import { provideHttpClient } from '@angular/common/http';
     AppRoutingModule,
     NgbDropdownModule,
     FontAwesomeModule,
+    FormsModule,
+    HttpClientModule,
     CommonModule,
   ],
   providers: [
