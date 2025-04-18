@@ -4,7 +4,8 @@ import { CourseListingService, Course } from '../../course-listing/course-listin
 @Component({
   selector: 'app-course-registration',
   templateUrl: './course-registration.component.html',
-  styleUrls: ['./course-registration.component.scss']
+  styleUrls: ['./course-registration.component.scss'], 
+  standalone: true
 })
 export class CourseRegistrationComponent {
   constructor(private courseService: CourseListingService) {}

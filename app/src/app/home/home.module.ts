@@ -5,17 +5,19 @@ import { CourseRegistrationComponent } from './course-registration/course-regist
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
     HomeComponent, 
-    
   ],
   imports: [
     CommonModule,
+    HomeRoutingModule,
     CourseRegistrationComponent,
-    HomeRoutingModule
+    FormsModule
+    
   ]
 })
 export class HomeModule { }
