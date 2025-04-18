@@ -14,6 +14,7 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from '@angular/common';
 import { CourseListingComponent } from './course-listing/course-listing.component';
 import { provideHttpClient } from '@angular/common/http';
+import { CourseDetailsComponent } from './course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { provideHttpClient } from '@angular/common/http';
     LayoutComponent,
     HeaderComponent,
     CourseListingComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,11 @@
+<div *ngIf="course; else errorTpl">
+    <h2>{{ course.name }}</h2>
+    <p><strong>Description:</strong> {{ course.description }}</p>
+    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+    <p><strong>Start Date:</strong> {{ course.startDate | date }}</p>
+    <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
+  </div>
+  
+  <ng-template #errorTpl>
+    <p>{{ errorMessage }}</p>
+  </ng-template>
