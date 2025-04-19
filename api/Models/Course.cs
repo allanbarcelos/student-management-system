@@ -11,6 +11,10 @@ namespace StudentManagementSystem.Api.Models
         public DateTime EndDate { get; set; }
         public string Instructor { get; set; }
 
+        public ICollection<StudentCourse> StudentCourses { get; set; } 
+
+        public Course() { }
+
         public Course(int id, string name, string description, DateTime startDate, DateTime endDate, string instructor)
         {
             Id = id;
@@ -20,7 +24,6 @@ namespace StudentManagementSystem.Api.Models
             EndDate = endDate;
             Instructor = instructor;
         }
-
         public void DisplayCourseDetails()
         {
             Console.WriteLine($"Course ID: {Id}");
